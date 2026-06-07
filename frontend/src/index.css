@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base Styles ── */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-dark-bg text-text-primary font-sans antialiased;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-bg;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-muted;
+  }
+
+  ::selection {
+    @apply bg-brand-blue/30 text-text-primary;
+  }
+}
+
+/* ── Component Styles ── */
+@layer components {
+  /* Cards */
+  .card {
+    @apply bg-dark-card border border-dark-border rounded-xl p-5
+           transition-all duration-200 ease-out;
+  }
+
+  .card-hover {
+    @apply card hover:border-brand-blue/30 hover:bg-dark-hover
+           hover:shadow-lg hover:shadow-brand-blue/5;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply px-4 py-2.5 rounded-lg font-medium text-sm
+           transition-all duration-200 ease-out
+           flex items-center justify-center gap-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-blue text-dark-bg
+           hover:bg-brand-blue/90 hover:shadow-lg hover:shadow-brand-blue/20
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn bg-dark-surface border border-dark-border text-text-primary
+           hover:bg-dark-hover hover:border-brand-blue/30
+           active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply btn bg-brand-red/15 text-brand-red border border-brand-red/20
+           hover:bg-brand-red/25 hover:border-brand-red/40
+           active:scale-[0.98];
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent text-text-secondary
+           hover:bg-dark-hover hover:text-text-primary
+           active:scale-[0.98];
+  }
+
+  .btn-success {
+    @apply btn bg-brand-green/15 text-brand-green border border-brand-green/20
+           hover:bg-brand-green/25 hover:border-brand-green/40
+           active:scale-[0.98];
+  }
+
+  /* Input fields */
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg text-sm
+           bg-dark-surface border border-dark-border text-text-primary
+           placeholder:text-text-muted
+           focus:outline-none focus:border-brand-blue/50 focus:ring-1 focus:ring-brand-blue/20
+           transition-all duration-200;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-blue {
+    @apply badge bg-brand-blue/15 text-brand-blue;
+  }
+
+  .badge-green {
+    @apply badge bg-brand-green/15 text-brand-green;
+  }
+
+  .badge-yellow {
+    @apply badge bg-brand-yellow/15 text-yellow-600;
+  }
+
+  .badge-red {
+    @apply badge bg-brand-red/15 text-brand-red;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply bg-dark-border rounded animate-shimmer;
+    background: linear-gradient(
+      90deg,
+      theme('colors.dark.border') 25%,
+      theme('colors.dark.hover') 50%,
+      theme('colors.dark.border') 75%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* Page container */
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-lg font-semibold text-text-primary mb-4;
+  }
+
+  /* Stat card */
+  .stat-value {
+    @apply text-3xl font-bold tracking-tight;
+  }
+
+  .stat-label {
+    @apply text-sm text-text-secondary mt-1;
+  }
+}
+
+/* ── Utility Styles ── */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #70A1D7, #A1DE93);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(112, 161, 215, 0.15);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(161, 222, 147, 0.15);
+  }
+}
+
+@keyframes shrinkWidth {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}

@@ -1,0 +1,24 @@
+# Virtual environments
+.venv/
+venv/
+
+# Environment files (secrets)
+.env
+**/.env
+.env.*
+
+# Node modules
+node_modules/
+dist/
+
+# Databases
+*.sqlite3
+db.sqlite3
+
+# Archives
+*.zip
+
+# Python caches
+__pycache__/
+**/__pycache__/
+*.pyc
